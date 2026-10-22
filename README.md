@@ -67,7 +67,7 @@ cdk deploy
 ## Architecture
 
 This project creates the following AWS infrastructure:
-- An Amazon EKS cluster running Kubernetes v1.24+
+- An Amazon EKS cluster running Kubernetes v1.33
 - A VPC with public and private subnets across multiple Availability Zones
 - An EKS managed node group with t3.medium EC2 instances
 - A Kubernetes deployment running the official Minecraft server image

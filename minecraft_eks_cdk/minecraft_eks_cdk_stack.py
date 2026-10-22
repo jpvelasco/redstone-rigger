@@ -3,6 +3,7 @@ from aws_cdk import (
     aws_eks as eks,
     aws_ec2 as ec2,
 )
+from aws_cdk.lambda_layer_kubectl_v33 import KubectlV33Layer
 import yaml
 from constructs import Construct
 
@@ -17,7 +18,8 @@ class MinecraftEksCdkStack(Stack):
         # Create EKS cluster
         cluster = eks.Cluster(self, "MinecraftCluster",
             vpc=vpc,
-            version=eks.KubernetesVersion.V1_28,
+            version=eks.KubernetesVersion.V1_33,
+            kubectl_layer=KubectlV33Layer(self, "KubectlLayer"),
             default_capacity=2
         )
 
