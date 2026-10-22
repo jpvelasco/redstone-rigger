@@ -15,13 +15,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Build
-        run: echo "Add your build command here"
+      - name: Install dependencies
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements.txt
+      - name: Synthesize
+        run: .venv/bin/python app.py
 
   test:
     name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install dependencies
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements.txt -r requirements-dev.txt
       - name: Test
-        run: echo "Add your test command here"
+        run: .venv/bin/python -m pytest -q
