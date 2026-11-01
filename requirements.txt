@@ -1,4 +1,4 @@
-aws-cdk-lib==2.274.0
+aws-cdk-lib==2.275.0
 aws-cdk.lambda-layer-kubectl-v33==2.2.2
 constructs>=10.8.1,<11.0.0
 pyyaml
